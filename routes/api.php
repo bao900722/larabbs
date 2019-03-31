@@ -119,6 +119,12 @@ $api->version('v1', [
             // 当前登录用户权限
             $api->get('user/permissions', 'PermissionsController@index')
                 ->name('api.user.permissions.index');
+            // 登录
+            $api->post('authorizations', 'AuthorizationsController@store')
+                ->name('api.authorizations.store');
+            // 小程序登录
+            $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')
+                ->name('api.weapp.authorizations.store');
         });
     });
 });
